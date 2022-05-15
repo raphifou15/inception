@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+    image: mariadb
+    container_name: mariabb
+    restart: always
+    networks:
+      - lala
+  
+  nginx:
+    build:
+      context: ./requirements/nginx
+    image: nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - 443:443
+    networks:
+      - lala
+
+networks:
+  lala:
+    driver: bridge
