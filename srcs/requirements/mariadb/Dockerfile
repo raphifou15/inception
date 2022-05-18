@@ -7,7 +7,7 @@ RUN apt-get upgrade -y
 RUN apt-get install mariadb-server -y
 RUN apt-get install mariadb-client -y
 COPY ./lala.sh ./
-
+COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 #EXPOSE 3306
 

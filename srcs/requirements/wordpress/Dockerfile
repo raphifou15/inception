@@ -1,0 +1,37 @@
+FROM debian:buster
+
+LABEL version="1.0" maintainer="raphael khelif <rkhelif@student.42.fr>"
+
+RUN apt-get update
+RUN apt-get upgrade
+
+
+RUN apt-get install php7.3 -y
+RUN apt-get install php7.3-cli -y
+RUN apt-get install php7.3-fpm -y
+RUN apt-get install php7.3-json -y
+RUN apt-get install php7.3-pdo -y
+RUN apt-get install php7.3-mysql -y
+RUN apt-get install php7.3-zip -y
+RUN apt-get install php7.3-gd -y
+RUN apt-get install php7.3-mbstring -y
+RUN apt-get install php7.3-curl -y
+RUN apt-get install php7.3-xml -y
+RUN apt-get install php7.3-bcmath -y
+RUN apt-get install php7.3-json -y
+
+RUN apt-get install php-fpm -y
+RUN apt-get install php-cli -y
+RUN apt-get install php-mysql -y
+RUN apt-get install php-json -y
+RUN apt-get install php-mbstring -y
+RUN apt-get install php-xml -y
+
+RUN mkdir /run/php
+COPY ./www.conf /etc/php/7.3/fpm/pool.d/www.conf
+
+RUN apt-get install wget -y
+
+#ENTRYPOINT tail -f /dev/null
+#COPY ./index.php /var/www/html/index.php
+CMD ["php-fpm7.3", "-F"]

@@ -1,20 +1,36 @@
 version: "3.9"
 
 services:
+  wordpress:
+    depends_on:
+      - mariadb
+    build:
+      context: ./requirements/wordpress
+    image: wordpress
+    container_name: wordpress
+    volumes:
+      - ./requirements/tools/:/var/www/html/
+    restart: always
+    networks:
+      - lala
   mariadb:
     build:
-      context: ./requirements/mariadb
+     context: ./requirements/mariadb
     image: mariadb
-    container_name: mariabb
+    container_name: mariadb
     restart: always
     networks:
       - lala
   
   nginx:
+    depends_on:
+      - wordpress
     build:
       context: ./requirements/nginx
     image: nginx
     container_name: nginx
+    volumes:
+      - ./requirements/tools/:/var/www/html/.
     restart: always
     ports:
       - 443:443
