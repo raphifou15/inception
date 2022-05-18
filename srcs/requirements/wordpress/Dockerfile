@@ -31,7 +31,11 @@ RUN mkdir /run/php
 COPY ./www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 RUN apt-get install wget -y
+RUN wget https://wordpress.org/latest.tar.gz
+RUN tar -xvzf /latest.tar.gz
+COPY ./lala2.sh ./
+#RUN mv wordpress /var/www/html/
 
 #ENTRYPOINT tail -f /dev/null
 #COPY ./index.php /var/www/html/index.php
-CMD ["php-fpm7.3", "-F"]
+ENTRYPOINT ["sh", "./lala2.sh"]
