@@ -11,7 +11,7 @@ COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 #EXPOSE 3306
 
-ENTRYPOINT ["sh", "./lala.sh"]
+ENTRYPOINT ["sh", "/lala.sh"]
 
 #CMD ["mysqld_safe"]
 

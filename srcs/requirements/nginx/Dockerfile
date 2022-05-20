@@ -19,7 +19,7 @@ RUN openssl req -newkey rsa:4096 \
 #EXPOSE 443
 
 COPY ./default /etc/nginx/sites-available/default
-#COPY ./favicon.ico /var/www/html/
+COPY ./favicon.ico /var/www/html/
 
 CMD ["service", "nginx", "start"]
 CMD ["nginx", "-g", "daemon off;"]

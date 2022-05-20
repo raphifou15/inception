@@ -29,6 +29,7 @@ RUN apt-get install php-xml -y
 
 RUN mkdir /run/php
 COPY ./www.conf /etc/php/7.3/fpm/pool.d/www.conf
+COPY ./wp-config.php /
 
 RUN apt-get install wget -y
 RUN wget https://wordpress.org/latest.tar.gz
