@@ -51,7 +51,7 @@ server {
 
 	autoindex on;
 	# Add index.php to the list if you are using PHP
-	index index.html index.htm index.nginx-debian.html index.php;
+	index index.php;
 
 	server_name localhost www.localhost rkhelif.42.fr;
 

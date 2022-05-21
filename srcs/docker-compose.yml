@@ -9,7 +9,7 @@ services:
     image: wordpress
     container_name: wordpress
     volumes:
-      - wd:/var/www/html/wordpress
+      - wd:/var/www/html/
     restart: always
     networks:
       - lala
@@ -32,7 +32,7 @@ services:
     image: nginx
     container_name: nginx
     volumes:
-      - wd:/var/www/html/wordpress
+      - wd:/var/www/html/
     restart: always
     ports:
       - 443:443

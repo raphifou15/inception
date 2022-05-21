@@ -27,13 +27,22 @@ RUN apt-get install php-json -y
 RUN apt-get install php-mbstring -y
 RUN apt-get install php-xml -y
 
+### ajout autre methode
+RUN apt-get install mariadb-client -y
+#####
 RUN mkdir /run/php
 COPY ./www.conf /etc/php/7.3/fpm/pool.d/www.conf
-COPY ./wp-config.php /
+#COPY ./wp-config.php /
 
 RUN apt-get install wget -y
-RUN wget https://wordpress.org/latest.tar.gz
-RUN tar -xvzf /latest.tar.gz
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+WORKDIR /var/www/html
+RUN wp core download --allow-root
+WORKDIR /
+#RUN wget https://wordpress.org/latest.tar.gz
+#RUN tar -xvzf /latest.tar.gz
 COPY ./lala2.sh ./
 #RUN mv wordpress /var/www/html/
 
