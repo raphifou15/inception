@@ -49,7 +49,6 @@ server {
 
 	root /var/www/html;
 
-	autoindex on;
 	# Add index.php to the list if you are using PHP
 	index index.php;
 
@@ -83,9 +82,7 @@ server {
 	# deny access to .htaccess files, if Apache's document root
 	# concurs with nginx's one
 	#
-	#location ~ /\.ht {
-	#	deny all;
-	#}
+
 }
 
 

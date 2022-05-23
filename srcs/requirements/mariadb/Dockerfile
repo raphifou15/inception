@@ -6,14 +6,15 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install mariadb-server -y
 RUN apt-get install mariadb-client -y
+RUN apt-get install gettext-base -y
+RUN apt-get install procps -y
 COPY ./lala.sh ./
+COPY ./lala.sql ./
 COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 #EXPOSE 3306
 
 ENTRYPOINT ["sh", "/lala.sh"]
-
-#CMD ["mysqld_safe"]
 
 #######################################
 # `` = anticode tres important et non ''

@@ -8,6 +8,8 @@ services:
       context: ./requirements/wordpress
     image: wordpress
     container_name: wordpress
+    env_file:
+      - env.env
     volumes:
       - wd:/var/www/html/
     restart: always
@@ -18,6 +20,8 @@ services:
      context: ./requirements/mariadb
     image: mariadb
     container_name: mariadb
+    env_file:
+      - env.env
     volumes:
       - db:/var/lib/mysql/
     restart: always
@@ -56,3 +60,4 @@ volumes:
       type: none
       o: bind
       device: /home/rkhelif/data/db
+
