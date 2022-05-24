@@ -1,9 +1,9 @@
 #!/bin/bash
-export DB_ROOT_PASS=raph
+#export DB_ROOT_PASS=raph
 
-export DB_NAME=wordpress
-export DB_USER=rkhelif
-export DB_PASS=rkhelif
+#export DB_NAME=wordpress
+#export DB_USER=rkhelif
+#export DB_PASS=rkhelif
 
 set -xv
 RAPH=/lala.sql

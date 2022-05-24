@@ -34,3 +34,4 @@ clean: ${DOWN} ${PR}
 
 fclean: clean ${RM_V}
 
+re: fclean all
